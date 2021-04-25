@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+  <title>Petr's Planner</title>
+  
+  <!-- Linked stylesheets here! -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link href="../static/style.css" rel="stylesheet" type="text/css" />
+
+  <!-- Import Google Fonts (https://fonts.google.com/) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="container-fluid page">
+    <h1>Add To Do Item</h1>
+
+    <!-- Form that connects to the backend url 'add' -->
+		<form id="add-form" method="POST" action="/add">
+      
+      <!--  Description label and input -->
+      <label for="description">Description: </label>
+      <input type="text" class="form-control" name="description" required/>
+      <br/>
+
+      <!--  Category label and input -->
+      <label for="category">Category: </label>
+      <select class="form-control" name="category" required>
+        <option value="Home">Home</option>
+        <option value="Work">Work</option>
+        <option value="School">School</option>
+      </select>
+     
+      <br/>
+
+      <!--  Day label and input -->
+      <label for="day">Day: </label>
+      <select class="form-control" name="day" required>
+        <option value="Sunday">Sunday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        
+      </select>
+      <br/>
+
+      <!-- Back and submit buttons -->
+      <a href="/" class="btn btn-primary">Back</a>
+      <input class="btn btn-success" type="submit"/>
+      
+    </form>
+
+  </div>
+
+  <!-- Import JavaScript libraries (used to connect to the backend) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+
+</body>
+</html>

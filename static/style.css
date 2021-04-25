@@ -1,0 +1,91 @@
+
+body{
+  background-image: linear-gradient(to bottom, rgb(251, 183, 196), rgb(66, 114, 204), rgba(38, 59, 103));
+}
+
+img{
+  width: 50%;
+  height: 50%;
+  margin: 2em;
+}
+
+h1 {
+  font-family: "Orbitron";
+  text-shadow: -0.5px 0.5px 1px #000000;
+  color : rgba(229,193,241)
+}
+
+h2{
+  font-weight: bold;
+  text-shadow: -1px 1px 2px #000000;
+  color: rgba(229, 193, 241)
+}
+h3 {
+  color: rgb(38, 59, 103);
+}
+
+h5{
+  color: rgb(194, 205, 250);
+  text-shadow: -0.5px 0.5px 1px #000000;
+}
+
+p{
+  color: rgb(255, 255, 255);
+  text-shadow: -0.5px 0.5px 1px #000000;
+}
+td {
+  color: rgba(255,255,255);
+  text-shadow: -0.5px 0.5px 1px #000000;
+}
+
+th {
+  color: rgba(251,183,196);
+  text-shadow: -0.5px 0.5px 1px #000000;
+}
+
+label{
+  color: rgba(251,183,196);
+  text-shadow: -0.5px 0.5px 1px #000000;
+}
+.form-control {
+  background-color: rgb(182,232,243)
+}
+
+.page{
+  font-family: 'Courier Prime', monospace; 
+  color: black;
+  padding: 50px;
+}
+
+.card{
+  min-width: 15rem;
+  max-width: 22rem;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(240,146,146);
+
+}
+
+#home{
+  text-align: center;
+}
+
+#home-buttons a {
+  margin: 0.5em; 
+  margin-top: 3%;  
+}
+
+#back-btn{
+  margin-right: 1em;
+}
+
+.list-group-item{
+  font-family: 'Courier Prime', monospace;
+  color: rgba(0,0,0);
+  text-shadow: -0.5px 0.5px 1px #000000;
+  background-color: rgba(240,146,146);
+}
+
+.container-fluid{
+  background-image: linear-gradient(to top, rgb(251, 183, 196), rgb(66, 114, 204), rgba(38, 59, 103));
+}

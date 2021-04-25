@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Petr's Planner</title>
+
+	<!-- Linked stylesheets here! -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<link href="../static/style.css" rel="stylesheet" type="text/css" />
+
+  	<!-- Import Google Fonts (https://fonts.google.com/) -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+	  
+</head>
+
+<body>
+	<div class="container-fluid page">
+		<h1>My History</h1>
+		<!-- This is the table created in the view page -->
+		
+		<!-- Filter dropdown -->
+		<form method="POST" action="/view-cat">
+			<select id="view-form" class="form-control" name="cat" required onchange="this.form.submit()">
+				<option value = "" selected>Filter by Category</option>
+				<option id="all-option" value="All">All</option>
+				<option id="home-option" value="Home">Home</option>
+				<option id="work-option" value="Work">Work</option>
+				<option id="school-option" value="School">School</option>
+			</select>
+		</form>
+
+			<table class="table" id="resultTable">
+				<th>Description</th>
+				<th>Category</th>
+				<th>Day</th>
+				<tbody>
+					<!-- Generate a row for each item -->
+					<!-- Using Jinja2 to render data as rows in the table-->
+					{% for key, item in data.items() %}
+					  {% for value in item %}
+					<tr>
+						<td>{{value["description"]}}</td>
+						<td>{{value["category"]}}</td>
+						<td>{{value["day"]}}</td>
+						<td><input type="button" value="delete" name="{{value.description}}" class="btn btn-danger deleteRow" /></td>
+					</tr>
+					  {% endfor %}
+					{% endfor %}
+
+				</tbody>
+			</table>
+			
+			<!--  Display weekly calendar view -->
+			<div class="row">
+				<div class="card-deck">
+					{% for key, item in data.items() %}
+					<div class="card my-3 mx-1">
+						<h3 class="card-header">{{key}}</h3>
+						<div class="card-body">
+							<div class="list-group">
+					  {% for value in item %}
+							<div class="list-group-item" name="{{value.description}}">
+								<input class="form-check-input me-1" type="checkbox" value="">
+								{{value["description"]}}
+							</div>
+					  {% endfor %}
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+
+		<a href="/" class="btn btn-primary">Back</a>
+</div>
+
+
+	<!-- Link Ajax library (used to connect to the backend) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	$("#resultTable").on('click', '.deleteRow', function() {
+		let itemDescription = $(this).attr('name');
+		console.log(itemDescription);
+		$(this).closest('tr').remove();
+		$('div[name="'+itemDescription+'"]').remove();
+		$.post('/view-delete/'+itemDescription, {}, function(data){
+			return false;
+		});
+
+	});
+	</script>
+	
+</body>
+
+</html>
